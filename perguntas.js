@@ -97,6 +97,7 @@ const exibirPerguntasComResposta = () => {
 
     perguntaCampoBotoes.appendChild(editarButton);
     editarButton.setAttribute("class", "editarButton pergunta-botao");
+    editarButton.setAttribute('onclick', 'modal0editar.showModal()')
     editarButton.appendChild(editarButtonIcone);
     editarButtonIcone.setAttribute("class", "ph-bold ph-pencil-simple-line");
 
@@ -117,3 +118,7 @@ const exibirPerguntasComResposta = () => {
 };
 
 exibirPerguntasComResposta();
+
+
+// modal ---------------------
+const modal0editar = document.getElementById('modal-0-editar')

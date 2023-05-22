@@ -70,7 +70,7 @@ const selecionarBtn = (botao) => {
                 btnAddPergunta.classList.add('selecionado')
                 campoAddPerguntas.style.display = "block"
                 tituloCampo.innerHTML = "ADICIONAR PERGUNTA"
-                btnSelecaoPerguntas.style.display = "none"
+                btnSelecaoPerguntas.style.opacity = "0"
                 
             } else {
                 btnAddPergunta.classList.remove('selecionado')
@@ -100,13 +100,13 @@ const selecionarBtn = (botao) => {
                 btnPerguntasComResposta.classList.add('selecionado')
                 campoPerguntasComResposta.style.display = "block"
                 tituloCampo.innerHTML = "PERGUNTAS COM RESPOSTAS"
-                btnSelecaoPerguntas.style.display = "block"
+                btnSelecaoPerguntas.style.opacity = "1"
                 
             } else {
                 btnPerguntasComResposta.classList.remove('selecionado')
                 campoPerguntasComResposta.style.display = "none"
                 tituloCampo.innerHTML = ""
-                btnSelecaoPerguntas.style.display = "none"
+                btnSelecaoPerguntas.style.opacity = "0"
             }
         break
 
@@ -131,13 +131,13 @@ const selecionarBtn = (botao) => {
                 btnPerguntasSemResposta.classList.add('selecionado')
                 campoPerguntasSemResposta.style.display = "block"
                 tituloCampo.innerHTML = "PERGUNTAS SEM RESPOSTAS"
-                btnSelecaoPerguntas.style.display = "block"
+                btnSelecaoPerguntas.style.opacity = "1"
                 
             } else {
                 btnPerguntasSemResposta.classList.remove('selecionado')
                 campoPerguntasSemResposta.style.display = "none"
                 tituloCampo.innerHTML = ""
-                btnSelecaoPerguntas.style.display = "none"
+                btnSelecaoPerguntas.style.opacity = "0"
             }
         break
 
@@ -162,13 +162,13 @@ const selecionarBtn = (botao) => {
                 btnPerguntasExcluidas.classList.add('selecionado')
                 campoPerguntasExcluidas.style.display = "block"
                 tituloCampo.innerHTML = "PERGUNTAS EXCLUIDAS"
-                btnSelecaoPerguntas.style.display = "block"
+                btnSelecaoPerguntas.style.opacity = "1"
                 
             } else {
                 btnPerguntasExcluidas.classList.remove('selecionado')
                 campoPerguntasExcluidas.style.display = "none"
                 tituloCampo.innerHTML = ""
-                btnSelecaoPerguntas.style.display = "none"
+                btnSelecaoPerguntas.style.opacity = "0"
             }
         break
     }

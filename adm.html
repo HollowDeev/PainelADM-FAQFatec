@@ -33,7 +33,7 @@
         <!-- TITULO -->
         <h2 id="titulo"></h2>
 
-        <div id="selecao-perguntas" style="display:none">
+        <div id="selecao-perguntas" >
             <span>Selecione o tema de pergunta: </span>
             <select name="" id="">
                 <option value="">DSM</option>
@@ -70,32 +70,13 @@
 
             <!-- CAMPO DE PERGUNTAS COM RESPOSTAS -->
             <div id="perguntas-resposta">
-                <!-- PERGUNTA 1  -->
-                <!-- <div class="pergunta">
-                    <div class="pergunta-cabecalho">
-                        <div class="pergunta-campo-informacoes">
-                            <div class="pergunta-imagem">
-                                <img src="imagens/user.png" alt="imagem-perfil" width="40px" height="40px">
-                            </div>
-                            <div class="pergunta-informacoes">
-                                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, atque provident illo minima magnam ipsum quos tenetur incidunt laboriosam iusto necessitatibus enim! Temporibus eligendi sunt exercitationem delectus assumenda cum praesentium.</h3>
-                                <span>Nome do Aluno | </span>
-                                <span>Data da Pergunta</span>
-                            </div>
-                        </div>
-
-                        <div class="pergunta-campo-botoes">
-                            <button class="editarButton pergunta-botao"><i class="ph-bold ph-pencil-simple-line"></i> EDITAR</button>
-                            <button class="addButton pergunta-botao"><i class="ph ph-upload-simple"></i> ADICIONAR</button>
-                            <button class="excluirButton pergunta-botao"><i class="ph-bold ph-trash-simple"></i> EXCLUIR</button>
-                        </div>
-                    </div>
-
-                    <div id="pergunta-campo-resposta1" class="pergunta-campo-resposta">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur placeat eaque pariatur autem consequuntur odio, totam aliquid harum dolor voluptates quaerat, iusto similique fugiat voluptatem, fuga aliquam exercitationem iste! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas hic voluptatibus debitis error dolorem magnam eum beatae minima accusamus placeat culpa eaque consectetur quod, velit, ullam porro, in ipsam blanditiis?</p>
-                    </div>
-
-                </div> -->
+                
+                <dialog id="modal-0-editar">
+                    <h1>Modificar Pergunta</h1>
+                    <h3>Pergunta</h3>
+                    <p>Resposta</p>
+                    <button onclick="modal0editar.close()">Fechar</button>
+                </dialog>
 
             </div>   
             
