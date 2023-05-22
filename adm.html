@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Administrativo</title>
+    <link rel="stylesheet" href="adm.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="botoes.js" defer></script>
+    <script src="perguntas.js" defer></script>
+</head>
+    <body onload="definirRespostas()">
+        
+        <!-- CABECALHO -->
+        <header>
+            <img src="imagens/logo-fatec.png" alt="" width="180px">
+            <h1>Painel de Administração</h1> 
+            <div class="sair">
+                <a href="logoff.html"><button class="botao-sair">Sair</button></a>
+            </div> 
+        </header>
+
+        <!-- BOTÕES -->
+        <div id="botao">
+            <button class="botao-adm" id="botao-adicionar-pergunta" onclick="selecionarBtn('addPergunta')">Adicionar pergunta</button>
+            <button class="botao-adm" id="botao-perguntas-com-respostas" onclick="selecionarBtn('pergunta-com-respostas')">Perguntas com respostas</button>
+            <button class="botao-adm" id="botao-perguntas-sem-respostas" onclick="selecionarBtn('pergunta-sem-respostas')">Perguntas sem respostas</button>
+            <button class="botao-adm" id="botao-perguntas-excluidas" onclick="selecionarBtn('pergunta-perguntas-excluidas')">Perguntas excluidas</button>
+            <button class="botao-adm">Visualizar perguntas</button> 
+        </div>
+
+        <!-- TITULO -->
+        <h2 id="titulo"></h2>
+
+        <div id="selecao-perguntas" style="display:none">
+            <span>Selecione o tema de pergunta: </span>
+            <select name="" id="">
+                <option value="">DSM</option>
+                <option value="">GE</option>
+                <option value="">Provas</option>
+            </select>
+        </div>
+
+        <main>
+
+            <!-- ADICIONAR PERGUNTAS -->
+            <div id="adicionar-perguntas">
+                <div class="pergunta" id="pergunta">
+                    <div class="pergunta-cabecalho">
+                        <div class="pergunta-campo-informacoes">
+                            <div class="pergunta-imagem">
+                                <img src="imagens/user.png" alt="imagem-perfil" width="40px" height="40px">
+                            </div>
+                            <div class="pergunta-informacoes">
+                                <textarea cols="115" rows="3" id="pergunta-aluno" class="pergunta-aluno"></textarea>
+                            </div>
+                        </div>
+    
+                        <div class="pergunta-campo-botoes">
+                            <button class="editarButton pergunta-botao"><i class="ph-bold ph-pencil-simple-line"></i> EDITAR</button>
+                            <button class="addButton pergunta-botao"><i class="ph ph-upload-simple"></i> ADICIONAR</button>
+                        </div>
+                    </div>
+    
+                    <textarea cols="30" rows="10" id="pergunta-campo-resposta" class="pergunta-campo-resposta">
+                    </textarea>
+                </div>
+            </div>
+
+            <!-- CAMPO DE PERGUNTAS COM RESPOSTAS -->
+            <div id="perguntas-resposta">
+                <!-- PERGUNTA 1  -->
+                <!-- <div class="pergunta">
+                    <div class="pergunta-cabecalho">
+                        <div class="pergunta-campo-informacoes">
+                            <div class="pergunta-imagem">
+                                <img src="imagens/user.png" alt="imagem-perfil" width="40px" height="40px">
+                            </div>
+                            <div class="pergunta-informacoes">
+                                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, atque provident illo minima magnam ipsum quos tenetur incidunt laboriosam iusto necessitatibus enim! Temporibus eligendi sunt exercitationem delectus assumenda cum praesentium.</h3>
+                                <span>Nome do Aluno | </span>
+                                <span>Data da Pergunta</span>
+                            </div>
+                        </div>
+
+                        <div class="pergunta-campo-botoes">
+                            <button class="editarButton pergunta-botao"><i class="ph-bold ph-pencil-simple-line"></i> EDITAR</button>
+                            <button class="addButton pergunta-botao"><i class="ph ph-upload-simple"></i> ADICIONAR</button>
+                            <button class="excluirButton pergunta-botao"><i class="ph-bold ph-trash-simple"></i> EXCLUIR</button>
+                        </div>
+                    </div>
+
+                    <div id="pergunta-campo-resposta1" class="pergunta-campo-resposta">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur placeat eaque pariatur autem consequuntur odio, totam aliquid harum dolor voluptates quaerat, iusto similique fugiat voluptatem, fuga aliquam exercitationem iste! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas hic voluptatibus debitis error dolorem magnam eum beatae minima accusamus placeat culpa eaque consectetur quod, velit, ullam porro, in ipsam blanditiis?</p>
+                    </div>
+
+                </div> -->
+
+            </div>   
+            
+            <!-- CAMPO DE PERGUNTAS SEM RESPOSTAS -->
+            <div id="perguntas-sem-resposta">    
+                <div class="pergunta" id="pergunta">
+
+                    <div class="pergunta-cabecalho">
+                        <div class="pergunta-campo-informacoes">
+                            <div class="pergunta-imagem">
+                                <img src="imagens/user.png" alt="imagem-perfil" width="40px" height="40px">
+                            </div>
+                            <div class="pergunta-informacoes">
+                                <textarea cols="115" rows="3" id="pergunta-aluno5" class="pergunta-aluno"></textarea>
+                                <span>Nome do Aluno | </span>
+                                <span>Data da Pergunta</span>
+                            </div>
+                        </div>
+
+                        <div class="pergunta-campo-botoes">
+                            <button class="editarButton pergunta-botao"><i class="ph-bold ph-pencil-simple-line"></i> EDITAR</button>
+                            <button class="addButton pergunta-botao"><i class="ph ph-upload-simple"></i> ADICIONAR</button>
+                            <button class="excluirButton pergunta-botao"><i class="ph-bold ph-trash-simple"></i> EXCLUIR</button>
+                        </div>
+                    </div>
+
+                    <textarea cols="30" rows="10" id="pergunta-camporesposta2" class="pergunta-campo-resposta">
+                    </textarea>
+                </div>
+            </div>
+
+            <!-- CAMPO DE PERGUNTAS EXCLUIDAS  -->
+            <div id="perguntas-excluidas">    
+                <div class="pergunta" id="pergunta">
+
+                    <div class="pergunta-cabecalho">
+                        <div class="pergunta-campo-informacoes">
+                            <div class="pergunta-imagem">
+                                <img src="imagens/user.png" alt="imagem-perfil" width="40px" height="40px">
+                            </div>
+                            <div class="pergunta-informacoes">
+                                <textarea cols="115" rows="3" id="pergunta-aluno6" class="pergunta-aluno"></textarea>
+                                <span>Nome do Aluno | </span>
+                                <span>Data da Pergunta</span>
+                            </div>
+                        </div>
+
+                        <div class="pergunta-campo-botoes">
+                            <button class="recuperarButton pergunta-botao"><i class="ph ph-archive-box"></i> RECUPERAR</button>
+                            <button class="editarButton pergunta-botao"><i class="ph-bold ph-pencil-simple-line"></i> EDITAR</button>
+                            <button class="addButton pergunta-botao"><i class="ph ph-upload-simple"></i> ADICIONAR</button>                           
+                        </div>
+                    </div>
+
+                    <textarea cols="30" rows="10" id="pergunta-campo-resposta5" class="pergunta-campo-resposta">
+                    </textarea>
+                </div>
+            </div>
+         
+        </main>
+
+    </body>
+</html>
