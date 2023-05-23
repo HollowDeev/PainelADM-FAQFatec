@@ -261,7 +261,6 @@ background-color: #CA4F49;
 
 /* ----- MODAL ----- */
 dialog {
-    min-height: 400px;
     min-width: 800px;
     border: none;
     box-shadow: 10px 10px rgb(82, 82, 82);
@@ -270,42 +269,50 @@ dialog {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    padding: 20px;
+    background-color: #d6d6d6;
+}
+
+dialog #modal-editar {
+    min-height: 400px;
 }
 
 dialog::backdrop {
-    background-color: #0202026e;
+    background-color: #00000069;
 }
 
 #modal-editar-header h1 {
-    background-color: #CA4F49;
-    color: #ffff;
+    background-color: #cce7ca;
+    color: #40774d;
     padding: 10px;
-    border-radius: 20px;
     margin-bottom: 10px;
     text-align: center;
 }
 
 #modal-editar-main {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 #modal-editar button {
+    box-sizing: border-box;
+    margin: 20px;
     padding: 10px 40px;
     margin-top: 10px;
-    width: 100%;
+    width: 95%;
     border-radius: 20px;
     border: none;
     background-color: #44BC5F;
     color: #ffff;
     cursor: pointer;
     box-shadow: inset -3px 4px 3px rgba(0, 0, 0, 0.25);
+    transition: all .5s ease;
 }
 
 #modal-editar button:hover {
     box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+    transition: all .5s ease;
 }
 
 #modal-editar #modal-pergunta {
@@ -313,10 +320,11 @@ dialog::backdrop {
     font-size: 2rem;
 }
 
-#modal-resposta {
+#modal-resposta, #modal-motivo {
     padding: 20px;
     font-size: 1.2rem;
 }
+
 
 #modal-editar textarea {
     border: none;
@@ -325,4 +333,57 @@ dialog::backdrop {
 }
 
 
+#modal-excluir-main textarea {
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    background-color: #ebebeb;
+    border-radius: 15px;
+}
 
+#modal-excluir-main  h4 {
+    margin-top: 25px;
+}
+
+#modal-excluir-header h1 {
+    border-radius: 10px;
+    background-color: #d39090;
+    color: #a81f18;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#modal-excluir-main {
+    padding: 20px;
+}
+
+#modal-excluir-main h2 {
+    color: #851911;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#modal-excluir-main span {
+    color: #5a0904;
+    font-weight: 900;
+}
+
+#modal-excluir button{
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 10px 40px;
+    margin-top: 30px;
+    width: 95%;
+    border-radius: 20px;
+    border: none;
+    background-color: #962f28;
+    color: #ffff;
+    cursor: pointer;
+    box-shadow: inset -3px 4px 3px rgba(0, 0, 0, 0.25);
+}
+
+#modal-excluir button:hover {
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+}

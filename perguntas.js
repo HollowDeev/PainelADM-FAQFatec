@@ -1,3 +1,4 @@
+// ----- LISTA COM AS PERGUNTAS QUE TEM RESPOSTA
 var listaPerguntaComResposta = [
   {
     id: 0,
@@ -24,12 +25,17 @@ var listaPerguntaComResposta = [
   },
 ];
 
+// ----- FUNÇÃO DE ARMAZENAR AS PERGUNTAS COM RESPOSTA NO LOCALSTORAGE
 const armazenarPerguntarComResposta = () => {
   let listaPerguntaComRespostaJSON = JSON.stringify(listaPerguntaComResposta)
   localStorage.setItem('perguntas-c-resposta', listaPerguntaComRespostaJSON)
   console.log('thaua')
 }
 
+// ------------------------------------------------------------------------------
+
+
+//  ----- VERIFICA SE A LISTA DE PERGUNTAS COM RESPOSTA ESTA NO LOCALSTORAGE
 if (localStorage.getItem('perguntas-c-resposta') === null) {
 
   armazenarPerguntarComResposta()
@@ -41,6 +47,7 @@ if (localStorage.getItem('perguntas-c-resposta') === null) {
 
 }
 
+// ----- CRIA AS DIVS DAS PERGUNTAS E A EXIBE NA TELA
 const divPerguntaComResposta = document.getElementById("perguntas-resposta");
 const exibirPerguntasComResposta = () => {
   listaPerguntaComResposta.forEach((el, indice) => {
@@ -66,10 +73,6 @@ const exibirPerguntasComResposta = () => {
     editarButton = document.createElement("button");
     editarButtonIcone = document.createElement("i");
     editarButton.innerHTML = "EDITAR";
-
-    addButton = document.createElement("button");
-    addButtonIcone = document.createElement("i");
-    addButton.innerHTML = "ADICIONAR";
 
     excluirButton = document.createElement("button");
     excluirButtonIcone = document.createElement("i");
@@ -113,17 +116,13 @@ const exibirPerguntasComResposta = () => {
 
     perguntaCampoBotoes.appendChild(editarButton);
     editarButton.setAttribute("class", "editarButton pergunta-botao");
-    editarButton.setAttribute('onclick', `acionarModal('abrir' , ${indice})`)
+    editarButton.setAttribute('onclick', `acionarModalEditar('abrir' , ${indice})`)
     editarButton.appendChild(editarButtonIcone);
     editarButtonIcone.setAttribute("class", "ph-bold ph-pencil-simple-line");
 
-    perguntaCampoBotoes.appendChild(addButton);
-    addButton.setAttribute("class", "addButton pergunta-botao");
-    addButton.appendChild(addButtonIcone);
-    addButtonIcone.setAttribute("class", "ph ph-upload-simple");
-
     perguntaCampoBotoes.appendChild(excluirButton);
     excluirButton.setAttribute("class", "excluirButton pergunta-botao");
+    excluirButton.setAttribute("onclick", "modalExcluir.showModal()");
     excluirButton.appendChild(excluirButtonIcone);
     excluirButtonIcone.setAttribute("class", "ph-bold ph-trash-simple");
 
@@ -134,13 +133,14 @@ const exibirPerguntasComResposta = () => {
 };
 exibirPerguntasComResposta();
 
-// --------------------modal ---------------------
+// ----- MODAIS -----------------------------------------------
 
+// ----- MODAL DE EDIÇÃO
 const modalEditar = document.getElementById('modal-editar')
 const modalEditar_campoPergunta = document.getElementById('modal-pergunta')
 const modalEditar_campoResposta = document.getElementById('modal-resposta')
 
-const acionarModal = (acao, indice) => {
+const acionarModalEditar = (acao, indice) => {
 
   switch (acao) {
     case 'abrir':
@@ -170,3 +170,7 @@ const fecharModalEditar = (indice) => {
     localStorage.removeItem('indice-pergunta-editar')
     modalEditar.close()
 }
+
+// ------ MODAL DE EXCLUSÃO
+
+const modalExcluir = document.getElementById('modal-excluir')

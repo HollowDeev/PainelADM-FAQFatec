@@ -33,6 +33,7 @@
         <!-- TITULO -->
         <h2 id="titulo"></h2>
 
+        <!-- SELECIONAR TEMA -->
         <div id="selecao-perguntas" >
             <span>Selecione o tema de pergunta: </span>
             <select name="" id="">
@@ -70,7 +71,7 @@
             <!-- CAMPO DE PERGUNTAS COM RESPOSTAS -->
             <div id="perguntas-resposta">
                 
-
+                <!-- MODAL DE EDICAO -->
                 <dialog id="modal-editar">
                     <header id="modal-editar-header">
                         <h1>Modificar Pergunta</h1>
@@ -83,7 +84,24 @@
                         <textarea name="modal-resposta" id="modal-resposta" cols="30" rows="10" style="resize: none;"></textarea>
                     </main>
 
-                    <button onclick="acionarModal('fechar')">Publicar Edição</button>
+                    <button onclick="acionarModalEditar('fechar')">Publicar Edição</button>
+                </dialog>
+
+                <!-- MODAL DE EXCLUSÃO -->
+                <dialog id="modal-excluir">
+                    <header id="modal-excluir-header">
+                        <h1>Excluir Pergunta</h1>
+                    </header>
+
+                    <main id="modal-excluir-main">
+                        <h2>Tem certeza que deseja excluir?</h2>
+                        <p>Ao excluir essa pergunta, ela não aparecerá mais para os alunos e visitantes do FAQ! <strong>Você poderá recuperar essa pergunta no painel <span>PERGUNTAS EXCLUIDAS</span></strong></p>
+
+                        <h4>Motivo:</h4>
+                        <textarea name="modal-motivo" id="modal-motivo" cols="30" rows="10" style="resize: none;" placeholder="Qual o motivo da exclusão dessa pergunta?" required></textarea>
+                    </main>
+                    
+                    <button onclick="modalExcluir.close()">fechar</button>
                 </dialog>
 
             </div>   
