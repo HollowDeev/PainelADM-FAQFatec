@@ -10,7 +10,7 @@
     <script src="botoes.js" defer></script>
     <script src="perguntas.js" defer></script>
 </head>
-    <body onload="definirRespostas()">
+    <body onload="verificarCampo()">
         
         <!-- CABECALHO -->
         <header id="header-painel">
@@ -78,12 +78,12 @@
                     
                     <main id="modal-editar-main">
                         <h4>Pergunta:</h4>
-                        <textarea name="modal-pergunta" id="modal-pergunta" cols="30" rows="3" style="resize: none;"></textarea>
+                        <textarea name="modal-pergunta" id="modal-pergunta" cols="30" rows="2" style="resize: none;"></textarea>
                         <h4>Resposta:</h4>
-                        <textarea name="modal-resposta" id="modal-resposta'" cols="30" rows="10" style="resize: none;"></textarea>
+                        <textarea name="modal-resposta" id="modal-resposta" cols="30" rows="10" style="resize: none;"></textarea>
                     </main>
 
-                    <button onclick="modal0editar.close()">Publicar Edição</button>
+                    <button onclick="acionarModal('fechar')">Publicar Edição</button>
                 </dialog>
 
             </div>   

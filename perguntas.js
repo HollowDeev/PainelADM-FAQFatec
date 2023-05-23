@@ -1,35 +1,38 @@
-if (localStorage.getItem('perguntas-c-resposta') === null) {
+var listaPerguntaComResposta = [
+  {
+    id: 0,
+    pergunta: "Quando começa as aulas?",
+    resposta: "Comeca no dia 08/02",
+    nomeAluno: "Thaua",
+    dataPergunta: "22/05",
+  },
 
-  var listaPerguntaComResposta = [
-    {
-      id: 0,
-      pergunta: "Quando começa as aulas?",
-      resposta: "Comeca no dia 08/02",
-      nomeAluno: "Thaua",
-      dataPergunta: "22/05",
-    },
-  
-    {
-      id: 1,
-      pergunta: "Quando acaba as aulas?",
-      resposta: "Nem eu sei",
-      nomeAluno: "Thaua",
-      dataPergunta: "22/03",
-    },
-  
-    {
-      id: 2,
-      pergunta: "Quando que é as ferias??",
-      resposta: "Descobre sozinho meu nobre",
-      nomeAluno: "Anonimo",
-      dataPergunta: "22/03",
-    },
-  ];
+  {
+    id: 1,
+    pergunta: "Quando acaba as aulas?",
+    resposta: "Nem eu sei",
+    nomeAluno: "Thaua",
+    dataPergunta: "22/03",
+  },
 
+  {
+    id: 2,
+    pergunta: "Quando que é as ferias??",
+    resposta: "Descobre sozinho meu nobre",
+    nomeAluno: "Anonimo",
+    dataPergunta: "22/03",
+  },
+];
 
+const armazenarPerguntarComResposta = () => {
   let listaPerguntaComRespostaJSON = JSON.stringify(listaPerguntaComResposta)
   localStorage.setItem('perguntas-c-resposta', listaPerguntaComRespostaJSON)
   console.log('thaua')
+}
+
+if (localStorage.getItem('perguntas-c-resposta') === null) {
+
+  armazenarPerguntarComResposta()
 
 } else {
 
@@ -110,7 +113,7 @@ const exibirPerguntasComResposta = () => {
 
     perguntaCampoBotoes.appendChild(editarButton);
     editarButton.setAttribute("class", "editarButton pergunta-botao");
-    editarButton.setAttribute('onclick', 'modal0editar.showModal()')
+    editarButton.setAttribute('onclick', `acionarModal('abrir' , ${indice})`)
     editarButton.appendChild(editarButtonIcone);
     editarButtonIcone.setAttribute("class", "ph-bold ph-pencil-simple-line");
 
@@ -131,10 +134,39 @@ const exibirPerguntasComResposta = () => {
 };
 exibirPerguntasComResposta();
 
-// modal ---------------------
-const modal0editar = document.getElementById('modal-editar')
+// --------------------modal ---------------------
+
+const modalEditar = document.getElementById('modal-editar')
+const modalEditar_campoPergunta = document.getElementById('modal-pergunta')
+const modalEditar_campoResposta = document.getElementById('modal-resposta')
+
+const acionarModal = (acao, indice) => {
+
+  switch (acao) {
+    case 'abrir':
+        localStorage.setItem('indice-pergunta-editar' , indice)
+        abrirModalEditar(indice)
+      break
+
+    case 'fechar':
+      fecharModalEditar(localStorage.getItem('indice-pergunta-editar'))
+  }
+}
+
+const abrirModalEditar = (indice) => {
+  modalEditar_campoPergunta.value = listaPerguntaComResposta[indice].pergunta
+  modalEditar_campoResposta.value = listaPerguntaComResposta[indice].resposta
+  modalEditar.showModal()
+}
 
 
-const modificarPergunta = (indice) => {
-  
+const fecharModalEditar = (indice) => {
+    listaPerguntaComResposta[indice].pergunta = modalEditar_campoPergunta.value
+    listaPerguntaComResposta[indice].resposta = modalEditar_campoResposta.value
+    armazenarPerguntarComResposta()
+    localStorage.setItem('painel-adm' , 'perguntaComResposta')
+    window.location.reload()
+
+    localStorage.removeItem('indice-pergunta-editar')
+    modalEditar.close()
 }

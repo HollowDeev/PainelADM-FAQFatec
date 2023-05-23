@@ -8,19 +8,19 @@
     font-family: 'Roboto', sans-serif;
 }
 
-::-webkit-scrollbar{
+#main-painel::-webkit-scrollbar{
     width: 10px;
     border-radius: 150px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
-::-webkit-scrollbar-track{
+#main-painel::-webkit-scrollbar-track{
     background: #bb3f39;
     border-radius: 150px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
-::-webkit-scrollbar-thumb{
+#main-painel::-webkit-scrollbar-thumb{
     background: #1f1e1e;
     border-radius: 30px;
     border-radius: 150px;
@@ -298,18 +298,29 @@ dialog::backdrop {
     width: 100%;
     border-radius: 20px;
     border: none;
-    background-color: #CA4F49;
+    background-color: #44BC5F;
     color: #ffff;
     cursor: pointer;
+    box-shadow: inset -3px 4px 3px rgba(0, 0, 0, 0.25);
 }
 
 #modal-editar button:hover {
     box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
 }
 
+#modal-editar #modal-pergunta {
+    padding: 20px;
+    font-size: 2rem;
+}
+
+#modal-resposta {
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
 #modal-editar textarea {
     border: none;
-    background-color: #cecece;
+    background-color: #ebebeb;
     border-radius: 15px;
 }
 
