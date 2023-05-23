@@ -26,6 +26,7 @@ if (localStorage.getItem('perguntas-c-resposta') === null) {
     },
   ];
 
+
   let listaPerguntaComRespostaJSON = JSON.stringify(listaPerguntaComResposta)
   localStorage.setItem('perguntas-c-resposta', listaPerguntaComRespostaJSON)
   console.log('thaua')
