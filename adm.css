@@ -34,7 +34,7 @@ body {
 }
 
 /* ----- CABECALHO ----- */
-header {
+#header-painel {
     height: 15vh;
     min-height: 135px;
     width: 100%;
@@ -125,7 +125,7 @@ header {
 }
 
 /* ----- CORPO DO PAINEL ----- */
-main {
+#main-painel {
     background-color: #ECEBEB;
     height: 65vh;
     margin: 20px;
@@ -275,6 +275,42 @@ dialog {
 
 dialog::backdrop {
     background-color: #0202026e;
+}
+
+#modal-editar-header h1 {
+    background-color: #CA4F49;
+    color: #ffff;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#modal-editar-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#modal-editar button {
+    padding: 10px 40px;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background-color: #CA4F49;
+    color: #ffff;
+    cursor: pointer;
+}
+
+#modal-editar button:hover {
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+#modal-editar textarea {
+    border: none;
+    background-color: #cecece;
+    border-radius: 15px;
 }
 
 

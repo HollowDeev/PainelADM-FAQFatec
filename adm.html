@@ -13,7 +13,7 @@
     <body onload="definirRespostas()">
         
         <!-- CABECALHO -->
-        <header>
+        <header id="header-painel">
             <img src="imagens/logo-fatec.png" alt="" width="180px">
             <h1>Painel de Administração</h1> 
             <div class="sair">
@@ -42,7 +42,7 @@
             </select>
         </div>
 
-        <main>
+        <main id="main-painel">
 
             <!-- ADICIONAR PERGUNTAS -->
             <div id="adicionar-perguntas">
@@ -71,11 +71,20 @@
             <!-- CAMPO DE PERGUNTAS COM RESPOSTAS -->
             <div id="perguntas-resposta">
                 
-                <dialog id="modal-0-editar">
-                    <h1>Modificar Pergunta</h1>
-                    <h3>Pergunta</h3>
-                    <p>Resposta</p>
-                    <button onclick="modal0editar.close()">Fechar</button>
+
+                <dialog id="modal-editar">
+                    <header id="modal-editar-header">
+                        <h1>Modificar Pergunta</h1>
+                    </header>
+                    
+                    <main id="modal-editar-main">
+                        <h4>Pergunta:</h4>
+                        <textarea name="modal-pergunta" id="modal-pergunta" cols="30" rows="3" style="resize: none;"></textarea>
+                        <h4>Resposta:</h4>
+                        <textarea name="modal-resposta" id="modal-resposta'" cols="30" rows="10" style="resize: none;"></textarea>
+                    </main>
+
+                    <button onclick="modal0editar.close()">Publicar Edição</button>
                 </dialog>
 
             </div>   

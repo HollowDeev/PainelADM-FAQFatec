@@ -1,31 +1,43 @@
-let listaPerguntaComResposta = [
-  {
-    id: 0,
-    pergunta: "Quando começa as aulas?",
-    resposta: "Comeca no dia 08/02",
-    nomeAluno: "Thaua",
-    dataPergunta: "22/05",
-  },
+if (localStorage.getItem('perguntas-c-resposta') === null) {
 
-  {
-    id: 1,
-    pergunta: "Quando acaba as aulas?",
-    resposta: "Nem eu sei",
-    nomeAluno: "Thaua",
-    dataPergunta: "22/03",
-  },
+  var listaPerguntaComResposta = [
+    {
+      id: 0,
+      pergunta: "Quando começa as aulas?",
+      resposta: "Comeca no dia 08/02",
+      nomeAluno: "Thaua",
+      dataPergunta: "22/05",
+    },
+  
+    {
+      id: 1,
+      pergunta: "Quando acaba as aulas?",
+      resposta: "Nem eu sei",
+      nomeAluno: "Thaua",
+      dataPergunta: "22/03",
+    },
+  
+    {
+      id: 2,
+      pergunta: "Quando que é as ferias??",
+      resposta: "Descobre sozinho meu nobre",
+      nomeAluno: "Anonimo",
+      dataPergunta: "22/03",
+    },
+  ];
 
-  {
-    id: 2,
-    pergunta: "Quanto tenho que pagar pra demitir o edison??",
-    resposta: "Cara, paga $2,50 q eu mando ele embora",
-    nomeAluno: "Anonimo",
-    dataPergunta: "22/03",
-  },
-];
+  let listaPerguntaComRespostaJSON = JSON.stringify(listaPerguntaComResposta)
+  localStorage.setItem('perguntas-c-resposta', listaPerguntaComRespostaJSON)
+  console.log('thaua')
+
+} else {
+
+  console.log('tais')
+  var listaPerguntaComResposta = JSON.parse(localStorage.getItem('perguntas-c-resposta'))
+
+}
 
 const divPerguntaComResposta = document.getElementById("perguntas-resposta");
-
 const exibirPerguntasComResposta = () => {
   listaPerguntaComResposta.forEach((el, indice) => {
     // Cria as divs --------------------------------------
@@ -116,9 +128,12 @@ const exibirPerguntasComResposta = () => {
     perguntaResposta.appendChild(perguntaRespostaTexto);
   });
 };
-
 exibirPerguntasComResposta();
 
-
 // modal ---------------------
-const modal0editar = document.getElementById('modal-0-editar')
+const modal0editar = document.getElementById('modal-editar')
+
+
+const modificarPergunta = (indice) => {
+  
+}
