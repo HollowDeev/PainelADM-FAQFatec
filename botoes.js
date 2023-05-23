@@ -143,6 +143,11 @@ const verificarCampo = () => {
         case 'perguntaComResposta':
             selecionarBtn('pergunta-com-respostas')
             localStorage.removeItem('painel-adm')
+            break
+
+        case 'perguntasExcluidas':
+            selecionarBtn('pergunta-perguntas-excluidas')
+            localStorage.removeItem('painel-adm')
     }
 
 }

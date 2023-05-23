@@ -1,51 +1,3 @@
-// ----- LISTA COM AS PERGUNTAS QUE TEM RESPOSTA
-var listaPerguntaComResposta = [
-  {
-    id: 0,
-    pergunta: "Quando começa as aulas?",
-    resposta: "Comeca no dia 08/02",
-    nomeAluno: "Thaua",
-    dataPergunta: "22/05",
-  },
-
-  {
-    id: 1,
-    pergunta: "Quando acaba as aulas?",
-    resposta: "Nem eu sei",
-    nomeAluno: "Thaua",
-    dataPergunta: "22/03",
-  },
-
-  {
-    id: 2,
-    pergunta: "Quando que é as ferias??",
-    resposta: "Descobre sozinho meu nobre",
-    nomeAluno: "Anonimo",
-    dataPergunta: "22/03",
-  },
-];
-
-// ----- FUNÇÃO DE ARMAZENAR AS PERGUNTAS COM RESPOSTA NO LOCALSTORAGE
-const armazenarPerguntarComResposta = () => {
-  let listaPerguntaComRespostaJSON = JSON.stringify(listaPerguntaComResposta)
-  localStorage.setItem('perguntas-c-resposta', listaPerguntaComRespostaJSON)
-  console.log('thaua')
-}
-
-// ------------------------------------------------------------------------------
-
-
-//  ----- VERIFICA SE A LISTA DE PERGUNTAS COM RESPOSTA ESTA NO LOCALSTORAGE
-if (localStorage.getItem('perguntas-c-resposta') === null) {
-
-  armazenarPerguntarComResposta()
-
-} else {
-
-  console.log('tais')
-  var listaPerguntaComResposta = JSON.parse(localStorage.getItem('perguntas-c-resposta'))
-
-}
 
 // ----- CRIA AS DIVS DAS PERGUNTAS E A EXIBE NA TELA
 const divPerguntaComResposta = document.getElementById("perguntas-resposta");
@@ -122,7 +74,7 @@ const exibirPerguntasComResposta = () => {
 
     perguntaCampoBotoes.appendChild(excluirButton);
     excluirButton.setAttribute("class", "excluirButton pergunta-botao");
-    excluirButton.setAttribute("onclick", "modalExcluir.showModal()");
+    excluirButton.setAttribute("onclick", `acionarModalExcluir('abrir', ${indice})`);
     excluirButton.appendChild(excluirButtonIcone);
     excluirButtonIcone.setAttribute("class", "ph-bold ph-trash-simple");
 
@@ -132,6 +84,7 @@ const exibirPerguntasComResposta = () => {
   });
 };
 exibirPerguntasComResposta();
+
 
 // ----- MODAIS -----------------------------------------------
 
@@ -150,6 +103,7 @@ const acionarModalEditar = (acao, indice) => {
 
     case 'fechar':
       fecharModalEditar(localStorage.getItem('indice-pergunta-editar'))
+      break
   }
 }
 
@@ -171,6 +125,66 @@ const fecharModalEditar = (indice) => {
     modalEditar.close()
 }
 
-// ------ MODAL DE EXCLUSÃO
+// ------ MODAL DE EXCLUSÃO -----------------
 
 const modalExcluir = document.getElementById('modal-excluir')
+const modalExcluir_motivo = document.getElementById('modal-motivo')
+
+const acionarModalExcluir = (acao, indice) => {
+  switch(acao) {
+    case 'abrir':
+      localStorage.setItem('indice-pergunta-excluir', indice)
+      abrirModalExcluir(indice)
+      break
+
+    case 'fechar':
+      fecharModalExcluir(localStorage.getItem('indice-pergunta-excluir'))
+      break
+
+    case 'cancelar':
+      cancelarModalExcluir()
+  }
+
+}
+
+const abrirModalExcluir = (indice) => {
+  modalExcluir.showModal()
+}
+
+const fecharModalExcluir = (indice) => {
+  const pergunta = listaPerguntaComResposta[indice].pergunta
+  const resposta = listaPerguntaComResposta[indice].resposta
+  const nomeAluno = listaPerguntaComResposta[indice].nomeAluno
+  const data = listaPerguntaComResposta[indice].dataPergunta
+  const motivo = modalExcluir_motivo.value
+  const id = listaPerguntaComResposta[indice].id
+
+  const objPergunta = {
+    id: id,
+    pergunta: pergunta,
+    resposta: resposta,
+    nomeAluno: nomeAluno,
+    dataPergunta: data,
+    motivo: motivo
+  }
+
+  listaPerguntasExcluidas.push(objPergunta)
+  console.log(listaPerguntasExcluidas)
+
+  listaPerguntaComResposta.splice(indice, 1)
+  console.log(listaPerguntaComResposta)
+
+  armazenarPerguntarComResposta()
+  armazenarPerguntasExcluidas()
+  localStorage.setItem('painel-adm' , 'perguntasExcluidas')
+
+  localStorage.removeItem('indice-pergunta-excluir')
+  window.location.reload()
+
+  modalExcluir.close()
+}
+
+const cancelarModalExcluir = () => {
+  localStorage.removeItem('indice-pergunta-excluir')
+  modalExcluir.close()
+}

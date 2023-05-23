@@ -7,8 +7,11 @@
     <title>Portal Administrativo</title>
     <link rel="stylesheet" href="adm.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     <script src="botoes.js" defer></script>
-    <script src="perguntas.js" defer></script>
+    <script src="perguntas-com-resposta.js" defer></script>
+    <script src="perguntas-excluidas.js" defer></script>
+    <script src="bancoDados.js"></script>
 </head>
     <body onload="verificarCampo()">
         
@@ -74,17 +77,17 @@
                 <!-- MODAL DE EDICAO -->
                 <dialog id="modal-editar">
                     <header id="modal-editar-header">
-                        <h1>Modificar Pergunta</h1>
+                        <h1 class="modal-header-padrao">Modificar Pergunta</h1>
                     </header>
                     
-                    <main id="modal-editar-main">
+                    <main id="modal-editar-main" class="modal-main-padrao">
                         <h4>Pergunta:</h4>
-                        <textarea name="modal-pergunta" id="modal-pergunta" cols="30" rows="2" style="resize: none;"></textarea>
+                        <textarea name="modal-pergunta" id="modal-pergunta" cols="30" rows="2" style="resize: none;" class="modal-campo-pergunta-padrao"></textarea>
                         <h4>Resposta:</h4>
-                        <textarea name="modal-resposta" id="modal-resposta" cols="30" rows="10" style="resize: none;"></textarea>
+                        <textarea name="modal-resposta" id="modal-resposta" cols="30" rows="10" style="resize: none;" class="modal-campo-resposta-padrao"></textarea>
                     </main>
 
-                    <button onclick="acionarModalEditar('fechar')">Publicar Edição</button>
+                    <button onclick="acionarModalEditar('fechar')" class="modal-editar-button-padrao">Publicar Edição</button>
                 </dialog>
 
                 <!-- MODAL DE EXCLUSÃO -->
@@ -101,7 +104,11 @@
                         <textarea name="modal-motivo" id="modal-motivo" cols="30" rows="10" style="resize: none;" placeholder="Qual o motivo da exclusão dessa pergunta?" required></textarea>
                     </main>
                     
-                    <button onclick="modalExcluir.close()">fechar</button>
+                    <div id="modal-excluir-buttons">
+                        <button onclick="acionarModalExcluir('fechar')" id="modal-excluir-btnExcluir">EXCLUIR</button>
+                        <button onclick="acionarModalExcluir('cancelar')" id="modal-excluir-btnCancelar">CANCELAR</button>
+                    </div>
+                    
                 </dialog>
 
             </div>   
@@ -136,7 +143,65 @@
 
             <!-- CAMPO DE PERGUNTAS EXCLUIDAS  -->
             <div id="perguntas-excluidas">    
-                <div class="pergunta" id="pergunta">
+
+                <!-- MODAL PERGUNTA EXCLUIDA EDITAR -->
+                <dialog id="modal-PE-editar">
+                    <header id="modal-PE-editar-header">
+                        <h1 class="modal-header-padrao">Modificar Pergunta</h1>
+                    </header>
+                    
+                    <main id="modal-PE-editar-main" class="modal-main-padrao">
+                        <h4>Pergunta:</h4>
+                        <textarea name="modal-PE-pergunta" id="modal-PE-pergunta" cols="30" rows="2" style="resize: none;" class="modal-campo-pergunta-padrao"></textarea>
+                        <h4>Resposta:</h4>
+                        <textarea name="modal-PE-resposta" id="modal-PE-resposta" cols="30" rows="10" style="resize: none;" class="modal-campo-resposta-padrao"></textarea>
+                    </main>
+
+                    <button onclick="acionarModal_PE_Editar('fechar')" class="modal-editar-button-padrao">Publicar Edição</button>
+                </dialog>
+
+                <!-- MODAL DE RECUPERAÇÃO -->
+                <dialog id="modal-PE-recuperar">
+                    <header id="modal-PE-recuperar-header" class="modal-header-padrao">
+                        <h1>Recuperar Pergunta</h1>
+                    </header>
+
+                    <main id="modal-PE-recuperar-main" class="modal-main-padrao">
+                        <h2>Tem certeza que deseja incluir novamente essa pergunta?</h2>
+                        <p>Ao recuperar essa pergunta, ela voltará a aparecer nos paineis de aluno e visitante do FAQ! <strong>Verifique o motivo para essa pergunta ter sido excluida antes de recupera-la!</strong></p>
+                        
+                        <div id="campo_modal_PE_recuperar_motivo">
+                            <h4>Motivo da exclusão:</h4>
+                            <h1 id="modal-recuperar-PE-motivo"></h1>
+                        </div>
+                        
+                    </main>
+                    
+                    <div id="modal-PE-recuperar-buttons"></div>
+                    <button id="modal-PE-recuperar-btnFechar" onclick="acionarModal_PE_Recuperar('fechar')">RECUPERAR</button>
+                    <button id="modal-PE-recuperar-btnCancelar"  onclick="acionarModal_PE_Recuperar('cancelar')">CANCELAR</button>
+                </dialog>      
+
+                <!-- MODAL DE MOTIVO -->
+                <dialog id="modal-PE-motivo">
+                    <header id="modal-PE-motivo-header" class="modal-header-padrao">
+                        <h1>MOTIVO DE EXCLUSÃO</h1>
+                    </header>
+
+                    <main id="modal-PE-motivo-main" class="modal-main-padrao">
+                        
+                        <div id="campo_modal_PE_motivo">
+                            <h4>De acordo com o Administrador que excluiu essa pergunta, o motivo para o mesmo é:</h4>
+                            <h1 id="modal-PE-motivo-campo">aa</h1>
+                        </div>
+                        
+                    </main>
+                    
+                    <div id="modal-PE-motivo-buttons"></div>
+                    <button id="modal-PE-motivo-btnCancelar"  onclick="cancelarModal_PE_Motivo('cancelar')">FECHAR</button>
+                </dialog>    
+
+                <!-- <div class="pergunta" id="pergunta">
 
                     <div class="pergunta-cabecalho">
                         <div class="pergunta-campo-informacoes">
@@ -159,8 +224,10 @@
 
                     <textarea cols="30" rows="10" id="pergunta-campo-resposta5" class="pergunta-campo-resposta">
                     </textarea>
-                </div>
+                </div> -->
             </div>
+
+            
          
         </main>
 
