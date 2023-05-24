@@ -40,7 +40,7 @@ const exibirPerguntasExcluidas = () => {
 
     // Adiciona elas e seta as classes ------------------------------
     divPerguntaExcluidas.appendChild(pergunta);
-    pergunta.setAttribute("class", `pergunta pergunta-${el.id}`);
+    pergunta.setAttribute("class", `pergunta pergunta-${indice}`);
 
     // Pergunta Cabecalho
     pergunta.appendChild(perguntaCabecalho);
@@ -56,7 +56,7 @@ const exibirPerguntasExcluidas = () => {
     perguntaImagem.setAttribute("class", "pergunta-imagem");
 
     perguntaImagem.appendChild(imagem);
-    imagem.src = "imagens/user.png";
+    imagem.src = "/imagens/user.png";
     imagem.setAttribute("width", "40px");
     imagem.setAttribute("height", "40px");
 
@@ -167,10 +167,8 @@ const fecharModal_PE_Recuperar = (indice) => {
   const resposta = listaPerguntasExcluidas[indice].resposta
   const nomeAluno = listaPerguntasExcluidas[indice].nomeAluno
   const data = listaPerguntasExcluidas[indice].dataPergunta
-  const id = listaPerguntasExcluidas[indice].id
 
   const objPergunta = {
-    id: id,
     pergunta: pergunta,
     resposta: resposta,
     nomeAluno: nomeAluno,

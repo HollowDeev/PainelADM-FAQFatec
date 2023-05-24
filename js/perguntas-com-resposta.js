@@ -32,11 +32,11 @@ const exibirPerguntasComResposta = () => {
 
     perguntaResposta = document.createElement("div");
     perguntaRespostaTexto = document.createElement("p");
-    perguntaResposta.innerHTML = `${el.resposta}`;
+    perguntaRespostaTexto.innerHTML = `${el.resposta}`;
 
     // Adiciona elas e seta as classes ------------------------------
     divPerguntaComResposta.appendChild(pergunta);
-    pergunta.setAttribute("class", `pergunta pergunta-${el.id}`);
+    pergunta.setAttribute("class", `pergunta pergunta-${indice}`);
 
     // Pergunta Cabecalho
     pergunta.appendChild(perguntaCabecalho);
@@ -52,7 +52,7 @@ const exibirPerguntasComResposta = () => {
     perguntaImagem.setAttribute("class", "pergunta-imagem");
 
     perguntaImagem.appendChild(imagem);
-    imagem.src = "imagens/user.png";
+    imagem.src = "/imagens/user.png";
     imagem.setAttribute("width", "40px");
     imagem.setAttribute("height", "40px");
 
@@ -157,10 +157,8 @@ const fecharModalExcluir = (indice) => {
   const nomeAluno = listaPerguntaComResposta[indice].nomeAluno
   const data = listaPerguntaComResposta[indice].dataPergunta
   const motivo = modalExcluir_motivo.value
-  const id = listaPerguntaComResposta[indice].id
 
   const objPergunta = {
-    id: id,
     pergunta: pergunta,
     resposta: resposta,
     nomeAluno: nomeAluno,

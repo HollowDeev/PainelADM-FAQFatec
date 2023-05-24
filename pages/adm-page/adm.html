@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Administrativo</title>
-    <link rel="stylesheet" href="adm.css">
+    <link rel="stylesheet" href="/css/adm.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <script src="botoes.js" defer></script>
-    <script src="perguntas-com-resposta.js" defer></script>
-    <script src="perguntas-excluidas.js" defer></script>
-    <script src="bancoDados.js"></script>
+    <script src="/js/botoes.js" defer></script>
+    <script src="/js/perguntas-sem-resposta.js" defer></script>
+    <script src="/js/perguntas-com-resposta.js" defer></script>
+    <script src="/js/perguntas-excluidas.js" defer></script>
+    <script src="/js/bancoDados.js"></script>
 </head>
     <body onload="verificarCampo()">
         
         <!-- CABECALHO -->
         <header id="header-painel">
-            <img src="imagens/logo-fatec.png" alt="" width="180px">
+            <img src="imagens/logo-fatec.png" alt="" width="150px">
             <h1>Painel de Administração</h1> 
             <div class="sair">
                 <a href="logoff.html"><button class="botao-sair">Sair</button></a>
@@ -50,23 +51,25 @@
 
             <!-- ADICIONAR PERGUNTAS -->
             <div id="adicionar-perguntas">
-                <div class="pergunta" id="pergunta">
+                <div class="add-pergunta" id="pergunta">
                     <div class="pergunta-cabecalho">
-                        <div class="pergunta-campo-informacoes">
-
-                            <div class="pergunta-informacoes">
-                                <h2 class="pergunta-aluno"></h2>
-                            </div>
+                        <div id="seleciona-tema">
+                            <span>Selecione o tema o qual a pergunta pertence: </span>
+                                <select name="" id="">
+                                    <option value="">DSM</option>
+                                    <option value="">GE</option>
+                                    <option value="">Provas</option>
+                             </select>
                         </div>
     
                         <div class="pergunta-campo-botoes">
                             <button class="addButton pergunta-botao"><i class="ph ph-upload-simple"></i> ADICIONAR</button>
                         </div>
                     </div>
-    
-                    <div class="pergunta-campo-resposta">
-                        
-                    </div>
+
+                    <textarea cols="30" rows="10" id="pergunta-aluno" class="add-pergunta-aluno" placeholder="Insira aqui a pergunta"></textarea>
+                    <textarea  id="" cols="30" rows="10"  id="pergunta-camporesposta" class="add-pergunta-campo-resposta" placeholder="Insira aqui a resposta"></textarea>
+                    </textarea>
 
                 </div>
             </div>
@@ -115,7 +118,7 @@
             
             <!-- CAMPO DE PERGUNTAS SEM RESPOSTAS -->
             <div id="perguntas-sem-resposta">    
-                <div class="pergunta" id="pergunta">
+                <!-- <div class="pergunta" id="pergunta">
 
                     <div class="pergunta-cabecalho">
                         <div class="pergunta-campo-informacoes">
@@ -123,7 +126,7 @@
                                 <img src="imagens/user.png" alt="imagem-perfil" width="40px" height="40px">
                             </div>
                             <div class="pergunta-informacoes">
-                                <textarea cols="115" rows="3" id="pergunta-aluno5" class="pergunta-aluno"></textarea>
+                                <h2>Pergunta</h2>
                                 <span>Nome do Aluno | </span>
                                 <span>Data da Pergunta</span>
                             </div>
@@ -136,9 +139,8 @@
                         </div>
                     </div>
 
-                    <textarea cols="30" rows="10" id="pergunta-camporesposta2" class="pergunta-campo-resposta">
-                    </textarea>
-                </div>
+                    <div id="pergunta-camporesposta" class="pergunta-campo-resposta"></div>
+                </div> -->
             </div>
 
             <!-- CAMPO DE PERGUNTAS EXCLUIDAS  -->
@@ -226,8 +228,6 @@
                     </textarea>
                 </div> -->
             </div>
-
-            
          
         </main>
 

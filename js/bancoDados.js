@@ -1,7 +1,6 @@
 // ----- LISTA COM AS PERGUNTAS QUE TEM RESPOSTA
 var listaPerguntaComResposta = [
     {
-      id: 0,
       pergunta: "Quando começa as aulas?",
       resposta: "Comeca no dia 08/02",
       nomeAluno: "Thaua",
@@ -9,7 +8,6 @@ var listaPerguntaComResposta = [
     },
   
     {
-      id: 1,
       pergunta: "Quando acaba as aulas?",
       resposta: "Nem eu sei",
       nomeAluno: "Thaua",
@@ -17,7 +15,6 @@ var listaPerguntaComResposta = [
     },
   
     {
-      id: 2,
       pergunta: "Quando que é as ferias??",
       resposta: "Descobre sozinho meu nobre",
       nomeAluno: "Anonimo",
@@ -25,16 +22,31 @@ var listaPerguntaComResposta = [
     },
   ];
   
-  var listaPerguntasExcluidas = [
+var listaPerguntasExcluidas = [
     {
-        id: 3,
         pergunta: "Essa pergunta foi excluida",
         resposta: 'Essa e a r esposta',
-        nomeAluno: 'eu mesmo',
+        nomeAluno: 'adm',
         dataPergunta: '23/05',
         motivo: 'sla, foi a escolhida da vez'
     }
   ]
+
+var listaPerguntaSemResposta = [
+    {
+      pergunta: "Por que?",
+      resposta: "",
+      nomeAluno: "Thaua",
+      dataPergunta: "22/05",
+    },
+
+    {
+      pergunta: "Quero merenda!",
+      resposta: "",
+      nomeAluno: "Thaua",
+      dataPergunta: "22/05",
+    },
+]
   
   // ----- FUNÇÃO DE ARMAZENAR AS PERGUNTAS COM RESPOSTA NO LOCALSTORAGE
   const armazenarPerguntarComResposta = () => {
@@ -42,10 +54,16 @@ var listaPerguntaComResposta = [
     localStorage.setItem('perguntas-c-resposta', listaPerguntaComRespostaJSON)
   }
   
-  // ----- FUNÇÃO DE ARMAZENAS AS PERGUNTAS EXCLUIDAS NO LOCALSTORAGE
-  function armazenarPerguntasExcluidas() {
+  // ----- FUNÇÃO DE ARMAZENAR AS PERGUNTAS EXCLUIDAS NO LOCALSTORAGE
+  const armazenarPerguntasExcluidas = () => {
     let listaPerguntasExcluidasJSON = JSON.stringify(listaPerguntasExcluidas);
     localStorage.setItem('perguntas-excluidas', listaPerguntasExcluidasJSON);
+  }
+
+  //  ----- FUNÇÃO DE ARMAZENAR AS PERGUNTAS SEM RESPOSTA NO LOCALSTORAGE
+  const armazenarPerguntasSemRespostas = () => {
+    let listaPerguntaSemRespostaJSON = JSON.stringify(listaPerguntaSemResposta)
+    localStorage.setItem('perguntas-s-resposta', listaPerguntaSemRespostaJSON)
   }
   
   // --------------------------  VERIFICAÇÃO  ---------------------------------
@@ -71,4 +89,12 @@ var listaPerguntaComResposta = [
   
     listaPerguntasExcluidas = JSON.parse(localStorage.getItem('perguntas-excluidas'))
   
+  }
+
+  if (localStorage.getItem('perguntas-s-resposta') === null) {
+
+    armazenarPerguntasSemRespostas()
+
+  } else {
+    listaPerguntaSemResposta = JSON.parse(localStorage.getItem('perguntas-s-resposta'))
   }
