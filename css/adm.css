@@ -190,6 +190,10 @@ body {
     color: black;
 }
 
+.add-pergunta-aluno:focus,  .add-pergunta-campo-resposta:focus {
+    outline: 2px solid #c2c2c2;
+}
+
 .add-pergunta-campo-resposta{
     resize: none;
     margin-top: 10px;
@@ -375,6 +379,10 @@ dialog::backdrop {
 .modal-campo-pergunta-padrao {
     padding: 20px;
     font-size: 2rem;
+}
+
+.modal-campo-pergunta-padrao:focus, .modal-campo-resposta-padrao:focus, #modal-motivo:focus {
+    outline: 2px solid #9c9c9c;
 }
 
 .modal-campo-resposta-padrao, #modal-motivo {

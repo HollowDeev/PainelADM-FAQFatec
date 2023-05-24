@@ -128,7 +128,7 @@ const selecionarBtn = (botao) => {
                 btnPerguntasExcluidas.classList.add('selecionado')
                 campoPerguntasExcluidas.style.display = "block"
                 tituloCampo.style.opacity = '1'
-                tituloCampo.innerHTML = "PERGUNTAS EXCLUIDAS"
+                tituloCampo.innerHTML = "PERGUNTAS ARQUIVADAS"
                 btnSelecaoPerguntas.style.opacity = "1"
                 
             } else {

@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Administrativo</title>
+
     <link rel="stylesheet" href="/css/adm.css">
+    <link rel="shortcut icon" href="/imagens/favicon.ico" type="image/x-icon">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script src="/js/botoes.js" defer></script>
@@ -30,7 +32,7 @@
             <button class="botao-adm" id="botao-adicionar-pergunta" onclick="selecionarBtn('addPergunta')">Adicionar pergunta</button>
             <button class="botao-adm" id="botao-perguntas-com-respostas" onclick="selecionarBtn('pergunta-com-respostas')">Perguntas com respostas</button>
             <button class="botao-adm" id="botao-perguntas-sem-respostas" onclick="selecionarBtn('pergunta-sem-respostas')">Perguntas sem respostas</button>
-            <button class="botao-adm" id="botao-perguntas-excluidas" onclick="selecionarBtn('pergunta-perguntas-excluidas')">Perguntas excluidas</button>
+            <button class="botao-adm" id="botao-perguntas-excluidas" onclick="selecionarBtn('pergunta-perguntas-excluidas')">Perguntas arquivadas</button>
             <button class="botao-adm">Visualizar perguntas</button> 
         </div>
 
@@ -96,19 +98,19 @@
                 <!-- MODAL DE EXCLUSÃO -->
                 <dialog id="modal-excluir">
                     <header id="modal-excluir-header">
-                        <h1>Excluir Pergunta</h1>
+                        <h1>Arquivar Pergunta</h1>
                     </header>
 
                     <main id="modal-excluir-main">
-                        <h2>Tem certeza que deseja excluir?</h2>
-                        <p>Ao excluir essa pergunta, ela não aparecerá mais para os alunos e visitantes do FAQ! <strong>Você poderá recuperar essa pergunta no painel <span>PERGUNTAS EXCLUIDAS</span></strong></p>
+                        <h2>Tem certeza que deseja arquivar?</h2>
+                        <p>Ao arquivar essa pergunta, ela não aparecerá mais para os alunos e visitantes do FAQ! <strong>Você poderá recuperar essa pergunta no painel <span>PERGUNTAS ARQUIVADAS</span></strong></p>
 
                         <h4>Motivo:</h4>
-                        <textarea name="modal-motivo" id="modal-motivo" cols="30" rows="10" style="resize: none;" placeholder="Qual o motivo da exclusão dessa pergunta?" required></textarea>
+                        <textarea name="modal-motivo" id="modal-motivo" cols="30" rows="10" style="resize: none;" placeholder="Qual o motivo de arquivar essa pergunta?" required></textarea>
                     </main>
                     
                     <div id="modal-excluir-buttons">
-                        <button onclick="acionarModalExcluir('fechar')" id="modal-excluir-btnExcluir">EXCLUIR</button>
+                        <button onclick="acionarModalExcluir('fechar')" id="modal-excluir-btnExcluir">ARQUIVAR</button>
                         <button onclick="acionarModalExcluir('cancelar')" id="modal-excluir-btnCancelar">CANCELAR</button>
                     </div>
                     
@@ -170,10 +172,10 @@
 
                     <main id="modal-PE-recuperar-main" class="modal-main-padrao">
                         <h2>Tem certeza que deseja incluir novamente essa pergunta?</h2>
-                        <p>Ao recuperar essa pergunta, ela voltará a aparecer nos paineis de aluno e visitante do FAQ! <strong>Verifique o motivo para essa pergunta ter sido excluida antes de recupera-la!</strong></p>
+                        <p>Ao recuperar essa pergunta, ela voltará a aparecer nos paineis de aluno e visitante do FAQ! <strong>Verifique o motivo para essa pergunta ter sido arquivada antes de recupera-la!</strong></p>
                         
                         <div id="campo_modal_PE_recuperar_motivo">
-                            <h4>Motivo da exclusão:</h4>
+                            <h4>Motivo da arquivação:</h4>
                             <h1 id="modal-recuperar-PE-motivo"></h1>
                         </div>
                         

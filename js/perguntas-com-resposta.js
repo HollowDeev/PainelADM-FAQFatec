@@ -28,7 +28,7 @@ const exibirPerguntasComResposta = () => {
 
     excluirButton = document.createElement("button");
     excluirButtonIcone = document.createElement("i");
-    excluirButton.innerHTML = "EXCLUIR";
+    excluirButton.innerHTML = "AQUIVAR";
 
     perguntaResposta = document.createElement("div");
     perguntaRespostaTexto = document.createElement("p");
