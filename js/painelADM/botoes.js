@@ -152,6 +152,16 @@ const verificarCampo = () => {
         case 'perguntasExcluidas':
             selecionarBtn('pergunta-perguntas-excluidas')
             localStorage.removeItem('painel-adm')
+            break
+
+        case 'perguntasSemResposta':
+            selecionarBtn('pergunta-sem-respostas')
+            localStorage.removeItem('painel-adm')
+            break
+
+        case 'adicionarPergunta': 
+            selecionarBtn('addPergunta')
+            localStorage.removeItem('painel-adm')
     }
 
 }

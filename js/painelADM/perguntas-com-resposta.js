@@ -17,9 +17,9 @@ const exibirPerguntasComResposta = () => {
     perguntaInformacoesTitulo = document.createElement("h2");
     perguntaInformacoesTitulo.innerHTML = `${el.pergunta}`;
     perguntaInformacoesNome = document.createElement("span");
-    perguntaInformacoesData = document.createElement("span");
+    perguntaInformacoesTema = document.createElement("span");
     perguntaInformacoesNome.innerHTML = `${el.nomeAluno} |`;
-    perguntaInformacoesData.innerHTML = ` ${el.dataPergunta}`;
+    perguntaInformacoesTema.innerHTML = ` ${el.tema}`;
 
     perguntaCampoBotoes = document.createElement("div");
     editarButton = document.createElement("button");
@@ -61,7 +61,7 @@ const exibirPerguntasComResposta = () => {
 
     perguntaInformacoes.appendChild(perguntaInformacoesTitulo);
     perguntaInformacoes.appendChild(perguntaInformacoesNome);
-    perguntaInformacoes.appendChild(perguntaInformacoesData);
+    perguntaInformacoes.appendChild(perguntaInformacoesTema);
 
     perguntaCabecalho.appendChild(perguntaCampoBotoes);
     perguntaCampoBotoes.setAttribute("class", "pergunta-campo-botoes");
@@ -88,7 +88,7 @@ exibirPerguntasComResposta();
 
 // ----- MODAIS -----------------------------------------------
 
-// ----- MODAL DE EDIÇÃO
+// ----- MODAL DE EDIÇÃO -----------
 const modalEditar = document.getElementById('modal-editar')
 const modalEditar_campoPergunta = document.getElementById('modal-pergunta')
 const modalEditar_campoResposta = document.getElementById('modal-resposta')
@@ -101,8 +101,15 @@ const acionarModalEditar = (acao, indice) => {
         abrirModalEditar(indice)
       break
 
-    case 'fechar':
-      fecharModalEditar(localStorage.getItem('indice-pergunta-editar'))
+    case 'salvar':
+      if(modalEditar_campoResposta.value == '') {
+        alert('Você removeu a resposta dessa pergunta, então ela será movida para as Perguntas sem resposta e não aparecerá mais para o usuario')
+
+        removerRespostaModalEditar(localStorage.getItem('indice-pergunta-editar'))
+
+      } else {
+        salvarModalEditar(localStorage.getItem('indice-pergunta-editar'))
+      }
       break
   }
 }
@@ -114,7 +121,7 @@ const abrirModalEditar = (indice) => {
 }
 
 
-const fecharModalEditar = (indice) => {
+const salvarModalEditar = (indice) => {
     listaPerguntaComResposta[indice].pergunta = modalEditar_campoPergunta.value
     listaPerguntaComResposta[indice].resposta = modalEditar_campoResposta.value
     armazenarPerguntarComResposta()
@@ -123,6 +130,32 @@ const fecharModalEditar = (indice) => {
 
     localStorage.removeItem('indice-pergunta-editar')
     modalEditar.close()
+}
+
+const removerRespostaModalEditar = (indice) => {
+  const pergunta = listaPerguntaComResposta[indice].pergunta
+  const resposta = modalEditar_campoResposta.value
+  const nomeAluno = listaPerguntaComResposta[indice].nomeAluno
+  const tema = listaPerguntaComResposta[indice].tema
+  
+  const objPergunta = {
+    pergunta: pergunta,
+    resposta: resposta,
+    nomeAluno: nomeAluno,
+    tema: tema
+  }
+
+  listaPerguntaSemResposta.unshift(objPergunta)
+  listaPerguntaComResposta.splice(indice, 1)
+
+  armazenarPerguntarComResposta()
+  armazenarPerguntasSemRespostas()
+
+  localStorage.setItem('painel-adm', 'perguntasSemResposta')
+  window.location.reload()
+  
+  localStorage.removeItem('indice-pergunta-editar')
+  modalEditar.close()
 }
 
 // ------ MODAL DE EXCLUSÃO -----------------
@@ -155,26 +188,23 @@ const fecharModalExcluir = (indice) => {
   const pergunta = listaPerguntaComResposta[indice].pergunta
   const resposta = listaPerguntaComResposta[indice].resposta
   const nomeAluno = listaPerguntaComResposta[indice].nomeAluno
-  const data = listaPerguntaComResposta[indice].dataPergunta
+  const tema = listaPerguntaComResposta[indice].tema
   const motivo = modalExcluir_motivo.value
 
   const objPergunta = {
     pergunta: pergunta,
     resposta: resposta,
     nomeAluno: nomeAluno,
-    dataPergunta: data,
+    tema: tema,
     motivo: motivo
   }
 
-  listaPerguntasExcluidas.push(objPergunta)
-  console.log(listaPerguntasExcluidas)
+  listaPerguntasExcluidas.unshift(objPergunta)
 
   listaPerguntaComResposta.splice(indice, 1)
-  console.log(listaPerguntaComResposta)
 
   armazenarPerguntarComResposta()
   armazenarPerguntasExcluidas()
-  localStorage.setItem('painel-adm' , 'perguntasExcluidas')
 
   localStorage.removeItem('indice-pergunta-excluir')
   window.location.reload()

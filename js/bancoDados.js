@@ -4,21 +4,21 @@ var listaPerguntaComResposta = [
       pergunta: "Quando começa as aulas?",
       resposta: "Comeca no dia 08/02",
       nomeAluno: "Thaua",
-      dataPergunta: "22/05",
+      tema: "Geral",
     },
   
     {
       pergunta: "Quando acaba as aulas?",
       resposta: "Nem eu sei",
       nomeAluno: "Thaua",
-      dataPergunta: "22/03",
+      tema: "geral",
     },
   
     {
       pergunta: "Quando que é as ferias??",
       resposta: "Descobre sozinho meu nobre",
       nomeAluno: "Anonimo",
-      dataPergunta: "22/03",
+      tema: "DSM",
     },
   ];
   
@@ -27,7 +27,7 @@ var listaPerguntasExcluidas = [
         pergunta: "Essa pergunta foi excluida",
         resposta: 'Essa e a r esposta',
         nomeAluno: 'adm',
-        dataPergunta: '23/05',
+        tema: 'DSM',
         motivo: 'sla, foi a escolhida da vez'
     }
   ]
@@ -37,14 +37,14 @@ var listaPerguntaSemResposta = [
       pergunta: "Por que?",
       resposta: "",
       nomeAluno: "Thaua",
-      dataPergunta: "22/05",
+      tema: "geral",
     },
 
     {
       pergunta: "Quero merenda!",
       resposta: "",
       nomeAluno: "Thaua",
-      dataPergunta: "22/05",
+      tema: "geral",
     },
 ]
   
@@ -80,7 +80,7 @@ var listaPerguntaSemResposta = [
   
   }
   
-  // ------ VERIFICA SE A LISTA DE PERGUNTAS SEM RESPOSTA ESTA NO LOCALSTORAGE
+  // ------ VERIFICA SE A LISTA DE PERGUNTAS EXCLUIDAS ESTA NO LOCALSTORAGE
   if (localStorage.getItem('perguntas-excluidas') === null) {
   
     armazenarPerguntasExcluidas()
@@ -90,6 +90,8 @@ var listaPerguntaSemResposta = [
     listaPerguntasExcluidas = JSON.parse(localStorage.getItem('perguntas-excluidas'))
   
   }
+
+    // ------ VERIFICA SE A LISTA DE PERGUNTAS SEM RESPOSTA ESTA NO LOCALSTORAGE
 
   if (localStorage.getItem('perguntas-s-resposta') === null) {
 

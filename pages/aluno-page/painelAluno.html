@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/painelAluno/style.css">
+    <link rel="shortcut icon" href="/imagens/favicon.ico" type="image/x-icon">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="/js/painelAluno/botao.js" defer></script>
+
+    <title>Página Inicial</title>
+</head>
+<body>
+    
+        <header id="header-painel">
+
+            <div id="menuUsuario" onclick="openMenuUsuario()">
+                <i class="ph-bold ph-list"></i>
+            </div>
+
+            <img src="/imagens/logo-fatec.png" alt="" width="150px">
+            <h1>Painel de Perguntas</h1> 
+            <div class="campoUsuarioAberto" id="campoUsuario">
+                <a href="" ><button class="botao-sair">Sair</button></a>
+                <div id="notificacao">
+                    <img src="/imagens/bell-simple-fill.png" alt="" width="25px">
+                </div>
+            </div> 
+        </header>
+
+        <main>
+            <div id="barra-acesso">
+                <div id="voltar-campo">
+                    <div id="voltar">
+                        <i class="ph-bold ph-arrow-fat-lines-left"></i>
+                        <a href="/pages/adm-page/painelADM.html">VOLTAR AOS TEMAS</a>
+                    </div>
+                </div>
+
+                <div id="campo-pesquisa">
+                    <input type="text" id="input-pesquisa" >
+                    <label for="input-pesquisa" id="label-pesquisa">PESQUISAR POR PERGUNTAS</label>
+                </div>
+
+                <div id="btn-novapergunta">
+                    <p>FAZER PERGUNTA</p>
+                </div>
+            </div>
+
+            <section id="campo-perguntas">
+                <div id="titulo-tema">
+                    <p id="tema">DSM</p>
+                    <i class="ph ph-code"></i>
+                </div>
+
+                <input type="checkbox" name="pergunta-0" id="pergunta-0" class="pergunta-checkbox">
+                <label for="pergunta-0" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="/imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-1" id="pergunta-1" class="pergunta-checkbox">
+                <label for="pergunta-1" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-2" id="pergunta-2" class="pergunta-checkbox">
+                <label for="pergunta-2" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-3" id="pergunta-3" class="pergunta-checkbox">
+                <label for="pergunta-3" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-4" id="pergunta-4" class="pergunta-checkbox">
+                <label for="pergunta-4" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-5" id="pergunta-5" class="pergunta-checkbox">
+                <label for="pergunta-5" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-6" id="pergunta-6" class="pergunta-checkbox">
+                <label for="pergunta-6" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-7" id="pergunta-7" class="pergunta-checkbox">
+                <label for="pergunta-7" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-8" id="pergunta-8" class="pergunta-checkbox">
+                <label for="pergunta-8" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-9" id="pergunta-9" class="pergunta-checkbox">
+                <label for="pergunta-9" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+                <input type="checkbox" name="pergunta-10" id="pergunta-10" class="pergunta-checkbox">
+                <label for="pergunta-10" class="pergunta-label">
+
+                    <div class="pergunta-cabecalho">
+                        <img src="imagens/user.png" alt="" width="50px" height="50px">
+                        <div class="pergunta-cabecalho-informacoes">
+                            <h1>Pergunta aqui ó, gostou??</h1>
+                            <span>Thauã |</span>
+                            <span>24/05</span>
+                        </div>
+                    </div>
+
+                    <div class="resposta">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, tenetur nam aliquam fugiat nobis quas ab enim minus voluptate eius illo quisquam similique soluta quos pariatur quibusdam eaque necessitatibus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero non magnam doloremque explicabo, ex quae suscipit hic numquam veritatis aspernatur sapiente illo neque ab voluptatum fugiat totam nobis? Quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quisquam ratione ex, ducimus, eveniet neque nam illo aliquid explicabo, magni distinctio non autem magnam libero totam cumque? Ut, modi cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt odio ipsa aspernatur optio ex quasi odit facilis illo eius repellat, iusto impedit velit, numquam molestiae. Et expedita esse reiciendis perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta repellat eligendi, distinctio ex quae iste? Minima consectetur quibusdam, nam, fugiat et beatae tenetur qui ab deleniti est dolorum animi.
+                    </div>
+
+                </label>
+
+            </section>
+
+            <div id="campo-nova-pergunta">
+                <div id="campo-nova-pergunta-titulo">
+                    <h1>NÃO ENCONTROU A PERGUNTA QUE PROCURAVA?</h1>
+                    <p id="campo-nova-pergunta-paragrafo">Nos a envie que responderemos o mais breve possivel! </p>
+                </div>
+
+                <div id="campo-nova-pergunta-adicionar">
+
+                    <div id="campo-adicionar-superior">
+
+                        <div id="campo-adicionar-superior-esquerda">
+
+                            <div id="campo-adicionar-superior-pergunta1">
+                                <label for="perguntar-anonimo">PERGUNTAR EM ANONIMO?</label>
+                                <span id="perguntar-anonimo"></span>
+                            </div>
+
+                            <div id="campo-adicionar-superior-pergunta2">
+                                <input type="text" id="nome-aluno">
+                                <label for="nome-aluno" id="nome-aluno-label">QUAL O SEU NOME?*</label>
+                            </div>
+
+                        </div>
+
+                        <div id="campo-adicionar-superior-direita">
+                            <button class="pergunta-botao">
+                                <i class="ph-bold ph-pencil-simple-line"></i> 
+                                <p>PERGUNTAR</p>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div id="campo-adicionar-meio">
+                        <textarea name="pergunta" id="" cols="110" rows="5" class="pergunta" placeholder="QUAL A SUA PERGUNTA?*"></textarea>
+                    </div>
+
+                    <div id="campo-adicionar-inferior">
+                        <div id="campo-adicionar-inferior-pergunta1">
+                            <p>Qual o seu curso?*</p>
+                            <select name="" id="">
+                                <option value="">DSM</option>
+                                <option value="">GE</option>
+                                <option value="">Provas</option>
+                            </select>
+                        </div>
+
+                        <div id="campo-adicionar-inferior-pergunta2">
+                            <p>QUAL O PERIODO?*</p>
+                            <select name="" id="">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                            </select>
+                        </div>
+
+                        <div id="campo-adicionar-inferior-pergunta3">
+                            <p>SELECIONE O TEMA DA PERGUNTA*</p>
+                            <select name="" id="">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="pergunta-botao-inferior">
+                        <i class="ph-bold ph-pencil-simple-line"></i> 
+                        <p>PERGUNTAR</p>
+                    </button>
+
+                </div>
+            </div>
+
+        </main>
+
+</body>
+</html>

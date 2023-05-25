@@ -17,9 +17,9 @@ const exibirPerguntasExcluidas = () => {
     perguntaInformacoesTitulo = document.createElement("h2");
     perguntaInformacoesTitulo.innerHTML = `${el.pergunta}`;
     perguntaInformacoesNome = document.createElement("span");
-    perguntaInformacoesData = document.createElement("span");
+    perguntaInformacoesTema = document.createElement("span");
     perguntaInformacoesNome.innerHTML = `${el.nomeAluno} |`;
-    perguntaInformacoesData.innerHTML = ` ${el.dataPergunta}`;
+    perguntaInformacoesTema.innerHTML = ` ${el.tema}`;
 
     perguntaCampoBotoes = document.createElement("div");
     editarButton = document.createElement("button");
@@ -65,7 +65,7 @@ const exibirPerguntasExcluidas = () => {
 
     perguntaInformacoes.appendChild(perguntaInformacoesTitulo);
     perguntaInformacoes.appendChild(perguntaInformacoesNome);
-    perguntaInformacoes.appendChild(perguntaInformacoesData);
+    perguntaInformacoes.appendChild(perguntaInformacoesTema);
 
     perguntaCabecalho.appendChild(perguntaCampoBotoes);
     perguntaCampoBotoes.setAttribute("class", "pergunta-campo-botoes");
@@ -166,13 +166,13 @@ const fecharModal_PE_Recuperar = (indice) => {
   const pergunta = listaPerguntasExcluidas[indice].pergunta
   const resposta = listaPerguntasExcluidas[indice].resposta
   const nomeAluno = listaPerguntasExcluidas[indice].nomeAluno
-  const data = listaPerguntasExcluidas[indice].dataPergunta
+  const tema = listaPerguntasExcluidas[indice].tema
 
   const objPergunta = {
     pergunta: pergunta,
     resposta: resposta,
     nomeAluno: nomeAluno,
-    dataPergunta: data,
+    tema: tema,
   }
 
   listaPerguntaComResposta.push(objPergunta)

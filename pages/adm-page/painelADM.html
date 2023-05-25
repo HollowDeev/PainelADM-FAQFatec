@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Administrativo</title>
 
-    <link rel="stylesheet" href="/css/adm.css">
+    <link rel="stylesheet" href="/css/painelADM/adm.css">
+    <link rel="stylesheet" href="/css/painelADM/modais.css">
+
     <link rel="shortcut icon" href="/imagens/favicon.ico" type="image/x-icon">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <script src="/js/botoes.js" defer></script>
-    <script src="/js/perguntas-sem-resposta.js" defer></script>
-    <script src="/js/perguntas-com-resposta.js" defer></script>
-    <script src="/js/perguntas-excluidas.js" defer></script>
+    <script src="/js/painelADM/botoes.js" defer></script>
+    <script src="/js/painelADM/perguntas-sem-resposta.js" defer></script>
+    <script src="/js/painelADM/perguntas-com-resposta.js" defer></script>
+    <script src="/js/painelADM/perguntas-excluidas.js" defer></script>
+    <script src="/js/painelADM/adicionar-pergunta.js" defer></script>
     <script src="/js/bancoDados.js"></script>
 </head>
     <body onload="verificarCampo()">
@@ -33,7 +36,7 @@
             <button class="botao-adm" id="botao-perguntas-com-respostas" onclick="selecionarBtn('pergunta-com-respostas')">Perguntas com respostas</button>
             <button class="botao-adm" id="botao-perguntas-sem-respostas" onclick="selecionarBtn('pergunta-sem-respostas')">Perguntas sem respostas</button>
             <button class="botao-adm" id="botao-perguntas-excluidas" onclick="selecionarBtn('pergunta-perguntas-excluidas')">Perguntas arquivadas</button>
-            <button class="botao-adm">Visualizar perguntas</button> 
+            <a class="botao-adm" href="/pages/aluno-page/painelAluno.html">Visualizar perguntas</a> 
         </div>
 
         <!-- TITULO -->
@@ -57,20 +60,22 @@
                     <div class="pergunta-cabecalho">
                         <div id="seleciona-tema">
                             <span>Selecione o tema o qual a pergunta pertence: </span>
-                                <select name="" id="">
-                                    <option value="">DSM</option>
-                                    <option value="">GE</option>
-                                    <option value="">Provas</option>
-                             </select>
+                                <select name="tema-add-pergunta" id="tema-add-pergunta">
+                                    <option value="Geral">Geral</option>
+                                    <option value="DSM">DSM</option>
+                                    <option value="GE">GE</option>
+                                    <option value="Provas">Provas</option>
+                                </select>
                         </div>
     
                         <div class="pergunta-campo-botoes">
-                            <button class="addButton pergunta-botao"><i class="ph ph-upload-simple"></i> ADICIONAR</button>
+                            <button class="addButton pergunta-botao" onclick="adicionarPergunta()"><i class="ph ph-upload-simple"></i> ADICIONAR</button>
                         </div>
                     </div>
 
                     <textarea cols="30" rows="10" id="pergunta-aluno" class="add-pergunta-aluno" placeholder="Insira aqui a pergunta"></textarea>
-                    <textarea  id="" cols="30" rows="10"  id="pergunta-camporesposta" class="add-pergunta-campo-resposta" placeholder="Insira aqui a resposta"></textarea>
+
+                    <textarea  id="" cols="30" rows="10"  id="pergunta-resposta" class="pergunta-resposta add-pergunta-campo-resposta" placeholder="Insira aqui a resposta"></textarea>
                     </textarea>
 
                 </div>
@@ -92,7 +97,7 @@
                         <textarea name="modal-resposta" id="modal-resposta" cols="30" rows="10" style="resize: none;" class="modal-campo-resposta-padrao"></textarea>
                     </main>
 
-                    <button onclick="acionarModalEditar('fechar')" class="modal-editar-button-padrao">Publicar Edição</button>
+                    <button onclick="acionarModalEditar('salvar')" class="modal-editar-button-padrao">Publicar Edição</button>
                 </dialog>
 
                 <!-- MODAL DE EXCLUSÃO -->
@@ -119,10 +124,29 @@
             </div>   
             
             <!-- CAMPO DE PERGUNTAS SEM RESPOSTAS -->
-            <div id="perguntas-sem-resposta">    
-                <!-- <div class="pergunta" id="pergunta">
+            <div id="perguntas-sem-resposta">   
 
-                    <div class="pergunta-cabecalho">
+                <!-- MODAL DE RESPONDER -->
+                <dialog id="modal-PSR-responder">
+                    <header id="modal-PSR-responder-header">
+                        <h1 class="modal-header-padrao">Modificar Pergunta</h1>
+                    </header>
+                    
+                    <main id="modal-PSR-responder-main" class="modal-main-padrao">
+                        <h4>Pergunta:</h4>
+                        <textarea name="modal-PSR-pergunta" id="modal-PSR-pergunta" cols="30" rows="2" style="resize: none;" class="modal-campo-pergunta-padrao"></textarea>
+                        <h4>Resposta:</h4>
+                        <textarea name="modal-PSR-resposta" id="modal-PSR-resposta" cols="30" rows="10" style="resize: none;" class="modal-campo-resposta-padrao"></textarea>
+                    </main>
+                    
+                    <div id="modal-PSR-buttons">
+                        <button onclick="acionarModal_PSR_responder('publicar')" id="modal-responder-button-publicar">Publicar Resposta</button>
+
+                        <button onclick="acionarModal_PSR_responder('cancelar')" id="modal-responder-button-Cancelar">Cancelar</button>
+                    </div>
+                </dialog>
+
+                    <!-- <div class="pergunta-cabecalho">
                         <div class="pergunta-campo-informacoes">
                             <div class="pergunta-imagem">
                                 <img src="imagens/user.png" alt="imagem-perfil" width="40px" height="40px">
@@ -139,10 +163,10 @@
                             <button class="addButton pergunta-botao"><i class="ph ph-upload-simple"></i> ADICIONAR</button>
                             <button class="excluirButton pergunta-botao"><i class="ph-bold ph-trash-simple"></i> EXCLUIR</button>
                         </div>
-                    </div>
 
-                    <div id="pergunta-camporesposta" class="pergunta-campo-resposta"></div>
-                </div> -->
+                        <div id="pergunta-camporesposta" class="pergunta-campo-resposta"></div>
+                    </div> -->
+
             </div>
 
             <!-- CAMPO DE PERGUNTAS EXCLUIDAS  -->
